@@ -71,4 +71,12 @@ function unify(vector) {
 	return unifiedVector;
 }
 
-export { identity, product, scalarProduct, sum, transpose };
+export {
+	identity,
+	orthogonalization,
+	product,
+	scalarProduct,
+	sum,
+	transpose,
+	unify,
+};
