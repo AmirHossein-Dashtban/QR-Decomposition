@@ -46,3 +46,5 @@ function transpose(matrix) {
 	}
 	return B;
 }
+
+export { identity, product, scalarProduct, sum, transpose };
