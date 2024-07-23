@@ -9,7 +9,7 @@ function identity(dimension) {
 
 function orthogonalization(_vectors) {
 	const vectors = _vectors.map((vector) => [vector]);
-	const OrthogonalVectors = [];
+	let OrthogonalVectors = [];
 	for (let vector of vectors) {
 		let newU = vector;
 		for (let u of OrthogonalVectors) {
