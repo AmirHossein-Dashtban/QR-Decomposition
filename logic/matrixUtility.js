@@ -7,6 +7,13 @@ function identity(dimension) {
 	return identity;
 }
 
+function norm2(v) {
+	let sum = 0;
+	for (let minor of v) sum += minor ** 2;
+	const norm2 = Math.sqrt(sum);
+	return norm2;
+}
+
 function orthogonalization(_vectors) {
 	const vectors = _vectors.map((vector) => [vector]);
 	let OrthogonalVectors = [];
@@ -73,6 +80,7 @@ function unify(vector) {
 
 export {
 	identity,
+	norm2,
 	orthogonalization,
 	product,
 	scalarProduct,
