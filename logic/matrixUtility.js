@@ -7,6 +7,24 @@ function identity(dimension) {
 	return identity;
 }
 
+function orthogonalization(_vectors) {
+	const vectors = _vectors.map((vector) => [vector]);
+	const OrthogonalVectors = [];
+	for (let vector of vectors) {
+		let newU = vector;
+		for (let u of OrthogonalVectors) {
+			let temp = scalarProduct(
+				product(vector, transpose(u))[0] / product(u, transpose(u))[0],
+				u
+			);
+			newU = sum(newU, scalarProduct(-1, temp));
+		}
+		OrthogonalVectors.push(newU);
+	}
+	OrthogonalVectors = OrthogonalVectors.map((v) => v[0]);
+	return OrthogonalVectors;
+}
+
 function product(A, B) {
 	const C = [];
 	for (let i = 0; i < A.length; i++) {
@@ -45,6 +63,12 @@ function transpose(matrix) {
 		for (let j = 0; j < matrix.length; j++) B[i][j] = matrix[j][i];
 	}
 	return B;
+}
+
+function unify(vector) {
+	const norm2V = norm2(vector);
+	let unifiedVector = vector.map((minor) => minor / norm2V);
+	return unifiedVector;
 }
 
 export { identity, product, scalarProduct, sum, transpose };
