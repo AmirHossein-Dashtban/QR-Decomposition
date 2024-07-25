@@ -1,5 +1,4 @@
 import {
-	norm2,
 	orthogonalization,
 	product,
 	transpose,
