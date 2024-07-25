@@ -5,7 +5,7 @@ import {
 	unify,
 } from './matrixUtility.js';
 
-function qrDecomposition(A_) {
+export default function qrDecomposition(A_) {
 	const A = A_;
 	const n = A.length;
 	let Q = transpose(orthogonalization(transpose(A)).map((v) => unify(v)));
@@ -24,5 +24,3 @@ function qrDecomposition(A_) {
 	}
 	return [Q, R];
 }
-
-export { qrDecomposition };
